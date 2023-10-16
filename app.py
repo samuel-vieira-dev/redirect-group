@@ -49,18 +49,18 @@ def index():
     clicks_left = 1000 - (counter.count % 1000)
 
     if group_index >= len(whatsapp_groups):
-        return "Todos os grupos estão cheios!"
+        return redirect("https://focaleducacao.com/grupos-cheios")
 
-    logging.info(f"Total cliques: {counter.count}")
-    logging.info(f"Usando link do grupo {group_index + 1}: {whatsapp_groups[group_index]}")
-    logging.info(f"Faltam {clicks_left} cliques para trocar de grupo")
+    logging.info(f"INFO: Total cliques: {counter.count}")
+    logging.info(f"INFO: Usando link do grupo {group_index + 1}: {whatsapp_groups[group_index]}")
+    logging.info(f"INFO: Faltam {clicks_left} cliques para trocar de grupo")
 
     return redirect(whatsapp_groups[group_index])
 
 @app.cli.command("initdb")
 def initdb():
     db.create_all()
-    print("Database initialized!")
+    print("-----BANCO DE DADOS INICIADO-----")
 
 
 if __name__ == '__main__':
