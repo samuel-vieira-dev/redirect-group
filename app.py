@@ -52,7 +52,7 @@ def index():
 
     logging.info(f"INFO: Total cliques: {counter.count}")
     logging.info(f"INFO: Usando link do grupo {group_index + 1}: {whatsapp_groups[group_index]}")
-    logging.info(f"INFO: Faltam {clicks_left} cliques para trocar para o grupo {group_index + 1}")
+    logging.info(f"INFO: Faltam {clicks_left} cliques para trocar para o grupo {group_index + 2}")
 
     return redirect(whatsapp_groups[group_index])
 
