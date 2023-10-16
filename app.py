@@ -41,19 +41,18 @@ def index():
         db.session.add(counter)
         db.session.commit()
 
-
     counter.count += 1
     db.session.commit()
 
-    group_index = counter.count // 1
-    clicks_left = 1000 - (counter.count % 1000)
+    group_index = counter.count // 500
+    clicks_left = 500 - (counter.count % 500)
 
     if group_index >= len(whatsapp_groups):
         return redirect("https://focaleducacao.com/grupos-cheios")
 
     logging.info(f"INFO: Total cliques: {counter.count}")
     logging.info(f"INFO: Usando link do grupo {group_index + 1}: {whatsapp_groups[group_index]}")
-    logging.info(f"INFO: Faltam {clicks_left} cliques para trocar de grupo")
+    logging.info(f"INFO: Faltam {clicks_left} cliques para trocar para o grupo {group_index + 1}")
 
     return redirect(whatsapp_groups[group_index])
 
