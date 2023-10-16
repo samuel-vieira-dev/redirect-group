@@ -28,6 +28,8 @@ def index():
     if not counter:
         counter = ClickCounter()
         db.session.add(counter)
+        db.session.commit()
+
 
     counter.count += 1
     db.session.commit()
